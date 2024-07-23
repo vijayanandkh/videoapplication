@@ -12,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.PlaybackParameters
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.source.hls.HlsMediaSource
 import com.google.android.exoplayer2.ui.PlayerView
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity(), Player.Listener {
         player.setMediaSource(mediaSource)
         player.prepare()
         player.addListener(this)
+        player.playbackParameters
 
     }
 
@@ -164,5 +166,14 @@ class MainActivity : AppCompatActivity(), Player.Listener {
                 callJavaScriptPausingVideo()
             }
         }
+        @JavascriptInterface
+        fun speedVideo() {
+            Log.d("VIJAY", "speed Button clicked")
+            runOnUiThread {
+                val playbackParameters = PlaybackParameters(5.0F)
+                player.playbackParameters = playbackParameters
+            }
+        }
+
     }
 }

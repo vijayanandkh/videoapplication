@@ -96,6 +96,12 @@
                 popup.style.display = 'none';
             }
 
+            function speedVideo() {
+                console.log('speed button clicked');
+                Android.speedVideo();
+            }
+
+
             function playingVideo() {
                 pausebutton.style.display = 'block';
                 playbutton.style.display = 'none';
@@ -126,6 +132,10 @@
         <button id="stopbutton" class="control-button" onclick="stopVideo()">
             <img src="icons_stop.png">
             </button>
+            <button id="speedbutton" class="control-button" onclick="speedVideo()">
+                <img src="icons_speed.png">
+            </button>
+
         </div>
 
     </body>
